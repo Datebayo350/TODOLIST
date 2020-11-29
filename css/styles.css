@@ -1,3 +1,7 @@
+html{
+    max-height: 100vh;
+    height: 100vh;
+}
 .hdr {
     background-color: #FCFCFC;
     border: 8px solid white;
@@ -12,11 +16,8 @@ header div>div img {
 }
 
 body {
-    
     background-image: linear-gradient(#FCFCFC, white, whitesmoke, antiquewhite);
-    background-repeat: no-repeat;
-    background-size: 100vw 100vh;
-
+    background-repeat: repeat;
 }
 
 .shadow-complete {
@@ -40,4 +41,9 @@ body {
 nav img {
     max-width: 40px;
     max-height: 40px;
+}
+.form-border {
+    border:3px solid black;
+    border-radius: 4px;
+    border-style: double;
 }

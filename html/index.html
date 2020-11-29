@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>       
-        <nav class="mb-5 mt-2 navbar navbar-expand-lg navbar-light bg-light rounded shadow container d-flex">
+        <nav class="mb-4 mt-2 navbar navbar-expand-lg navbar-light bg-light rounded shadow container d-flex">
             <div class="d-flex">
                 <img class="mt-2" src="../assets/images/check_icon.jpg" alt="Icône check">
                 <h1 class=" mr-5"><a class="navbar-brand">TODOLIST</a></h1>
@@ -47,57 +47,127 @@
         </nav>
     </header>
     <main>
+        <div class="container " style="max-height: 450px; overflow-y:scroll">
+            <div class="container mt-3 p-3 shadow-complete">
+                <div class="row d-flex justify-content-around">
+                    <div class="w-75 d-flex justify-content-between">
+                        <h3>Acheter du pain</h3>
+                        <p>Nom de la catégorie</p>
+                    </div>
+                    <div lass="d-flex justify-content-evenly">
+                        <button><a class="fas fa-check-square" style="color: Dodgerblue"></a></button>
+                        <button><a class="fas fa-pen" style="color: purple"></a></button>
+                        <button><a class="fas fa-trash" style="color: red"></a></button>
+                    </div>
+                    <div class="mb-n2 mt-2 p-0 progress container">
+                        <div class="progress-bar" role="progressbar" style="width: 100%;background-color: #7a7a7ac7; color:black" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="container p-3 shadow-complete">
-            <div class="row d-flex justify-content-around">
-                <div class="w-75 d-flex justify-content-between">
-                    <h3>Acheter du pain</h3>
-                    <p>Nom de la catégorie</p>
+            <div class="container mt-3 p-3 shadow-started">
+                <div class="row d-flex justify-content-around">
+                    <div class="w-75 d-flex justify-content-between">
+                        <h3>Acheter du pain</h3>
+                        <p>Nom de la catégorie</p>
+                    </div>
+                    <div lass="d-flex justify-content-evenly">
+                        <button><a class="fas fa-check-square" style="color: Dodgerblue"></a></button>
+                        <button><a class="fas fa-pen" style="color: purple"></a></button>
+                        <button><a class="fas fa-trash" style="color: red"></a></button>
+                    </div>
+                    <div class="mb-n2 mt-2 p-0 progress container-fluid">
+                        <div class="progress-bar  mb-0" role="progressbar" style="width: 43%;background-color: #7a7a7ac7; color:black" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100">43%</div>
+                    </div>
                 </div>
-                <div lass="d-flex justify-content-evenly">
-                    <button><a class="fas fa-check-square" style="color: Dodgerblue"></a></button>
-                    <button><a class="fas fa-pen" style="color: purple"></a></button>
-                    <button><a class="fas fa-trash" style="color: red"></a></button>
+            </div>
+
+            <div class="container mt-3 p-3 shadow-incomplete">
+                <div class="row d-flex justify-content-around">
+                    <div class="w-75 d-flex justify-content-between">
+                        <h3>Acheter du pain</h3>
+                        <p>Nom de la catégorie</p>
+                    </div>
+                    <div lass="mr-2 d-flex justify-content-evenly">
+                        <button><a class="fas fa-check-square" style="color: Dodgerblue"></a></button>
+                        <button><a class="fas fa-pen" style="color: purple"></a></button>
+                        <button><a class="fas fa-trash" style="color: red"></a></button>
+                    </div>
+                    <div class="mb-n2 mt-2 p-0 progress container-fluid ">
+                        <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #7a7a7ac7; color:black" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                    </div>
                 </div>
-                <div class="mb-n2 mt-2 p-0 progress container">
-                    <div class="progress-bar" role="progressbar" style="width: 100%;background-color: #7a7a7ac7; color:black" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+            </div>
+            <div class="container mt-3 p-3 shadow-complete">
+                <div class="row d-flex justify-content-around">
+                    <div class="w-75 d-flex justify-content-between">
+                        <h3>Acheter du pain</h3>
+                        <p>Nom de la catégorie</p>
+                    </div>
+                    <div lass="d-flex justify-content-evenly">
+                        <button><a class="fas fa-check-square" style="color: Dodgerblue"></a></button>
+                        <button><a class="fas fa-pen" style="color: purple"></a></button>
+                        <button><a class="fas fa-trash" style="color: red"></a></button>
+                    </div>
+                    <div class="mb-n2 mt-2 p-0 progress container">
+                        <div class="progress-bar" role="progressbar" style="width: 100%;background-color: #7a7a7ac7; color:black" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-3 p-3 shadow-started">
+                <div class="row d-flex justify-content-around">
+                    <div class="w-75 d-flex justify-content-between">
+                        <h3>Acheter du pain</h3>
+                        <p>Nom de la catégorie</p>
+                    </div>
+                    <div lass="d-flex justify-content-evenly">
+                        <button><a class="fas fa-check-square" style="color: Dodgerblue"></a></button>
+                        <button><a class="fas fa-pen" style="color: purple"></a></button>
+                        <button><a class="fas fa-trash" style="color: red"></a></button>
+                    </div>
+                    <div class="mb-n2 mt-2 p-0 progress container-fluid">
+                        <div class="progress-bar  mb-0" role="progressbar" style="width: 43%;background-color: #7a7a7ac7; color:black" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100">43%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-3 p-3 shadow-incomplete">
+                <div class="row d-flex justify-content-around">
+                    <div class="w-75 d-flex justify-content-between">
+                        <h3>Acheter du pain</h3>
+                        <p>Nom de la catégorie</p>
+                    </div>
+                    <div lass="mr-2 d-flex justify-content-evenly">
+                        <button><a class="fas fa-check-square" style="color: Dodgerblue"></a></button>
+                        <button><a class="fas fa-pen" style="color: purple"></a></button>
+                        <button><a class="fas fa-trash" style="color: red"></a></button>
+                    </div>
+                    <div class="mb-n2 mt-2 p-0 progress container-fluid ">
+                        <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #7a7a7ac7; color:black" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="container mt-3 p-3 shadow-started">
-            <div class="row d-flex justify-content-around">
-                <div class="w-75 d-flex justify-content-between">
-                    <h3>Acheter du pain</h3>
-                    <p>Nom de la catégorie</p>
-                </div>
-                <div lass="d-flex justify-content-evenly">
-                    <button><a class="fas fa-check-square" style="color: Dodgerblue"></a></button>
-                    <button><a class="fas fa-pen" style="color: purple"></a></button>
-                    <button><a class="fas fa-trash" style="color: red"></a></button>
-                </div>
-                <div class="mb-n2 mt-2 p-0 progress container-fluid">
-                    <div class="progress-bar  mb-0" role="progressbar" style="width: 43%;background-color: #7a7a7ac7; color:black" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100">43%</div>
+        <form action="../php/index.php" method="get" class="p-1 mt-4 container form-border">
+            <div class="form-group row">
+                <label for="taskName" class="col-sm-2 col-form-label col-form-label-sm">Tâche </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control form-control-sm" id="taskName" placeholder="Titre de la tâche">
                 </div>
             </div>
-        </div>
-
-        <div class="container mt-3 p-3 shadow-incomplete">
-            <div class="row d-flex justify-content-around">
-                <div class="w-75 d-flex justify-content-between">
-                    <h3>Acheter du pain</h3>
-                    <p>Nom de la catégorie</p>
-                </div>
-                <div lass="mr-2 d-flex justify-content-evenly">
-                    <button><a class="fas fa-check-square" style="color: Dodgerblue"></a></button>
-                    <button><a class="fas fa-pen" style="color: purple"></a></button>
-                    <button><a class="fas fa-trash" style="color: red"></a></button>
-                </div>
-                <div class="mb-n2 mt-2 p-0 progress container-fluid ">
-                    <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #7a7a7ac7; color:black" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            <div class="form-group row">
+                <label for="taskCategory" class="col-sm-2 col-form-label col-form-label-sm">Catégorie</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control form-control-sm" id="taskCategory" placeholder="Catégorie de la tâche">
                 </div>
             </div>
-        </div>
+            <div class="form-group ">
+                <label for="formControlRange">Example Range input</label>
+                <input type="range" class="form-control-range" id="formControlRange">
+            </div>
+            <button type="submit" class="btn btn-primary container-fluid">Envoyer</button>
+        </form>
     </main>
    
     <script src="https://kit.fontawesome.com/54b9013cb1.js" crossorigin="anonymous"></script>
