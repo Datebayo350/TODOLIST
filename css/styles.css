@@ -36,3 +36,8 @@ body {
     background-color: #bdb39ea1;
     color: #FCFCFC;
 }
+
+nav img {
+    max-width: 40px;
+    max-height: 40px;
+}

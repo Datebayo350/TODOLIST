@@ -8,36 +8,43 @@
     <link rel="stylesheet" href="../css/styles.css">
     <title>TODOLIST - Constantin</title>
 </head>
-<body>
+<body class="overflow-scroll">
     <header>       
-        <div class="shadow p-3 mb-5 rounded container">
-            <div class="row d-flex"> 
-                <img class="mb-3" src="../assets/images/check_icon.jpg" alt="Icône check">
-                <h1 class=" mr-5"><span class="">TODOLIST</span></h1>
-                <div class=" ml-5 col">
-                    <div class="row">
-                        <div class=" mt-2 d-flex justify-content-end col"> 
-                            <button class="btn btn-outline-primary btn-sm ml-1">Toutes </button>
-                            <button class="btn btn-outline-primary btn-sm ml-1"> Complètes</button>
-                            <button class="btn btn-outline-primary btn-sm ml-1"> Incomplètes</button>
-                        </div>
-                        <div class=" mt-2  d-flex  justify-content-start col">
-                            <div class="input-group-append ">
-                                <button class="  btn btn-outline-secondary btn-sm dropdown-toggle justify-content-between " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toutes les catégories</button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Courses</a>
-                                        <a class="dropdown-item" href="#">O'Clock</a>
-                                        <a class="dropdown-item" href="#">Titre Pro</a>
-                                        <div role="separator" class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Separated link</a>
-                                    </div>
-                                <button type="button" class="btn btn-link btn-sm">voir les archives</button>
-                            </div>
-                        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light rounded shadow container d-flex">
+            <div class="d-flex">
+                <img class="mt-2" src="../assets/images/check_icon.jpg" alt="Icône check">
+                <h1 class=" mr-5"><a class="navbar-brand">TODOLIST</a></h1>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" style="order: 4;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="ml-4 row collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="d-flex justify-content-start col navbar-nav mr-auto mt-2 mt-lg-0"> 
+                    <li class="nav-item active"> 
+                        <a class="nav-link">Toutes </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"> Complètes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"> Incomplètes</a>
+                    </li>
+                </ul>
+            </div>
+            <div class=" mt-1 d-flex justify-content-center col">
+                <div class="input-group-append ">
+                    <button class="  mr-4 btn btn-outline-secondary btn-sm dropdown-toggle justify-content-between " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toutes les catégories</button>
+                    <div class=" ml-5 dropdown-menu">
+                        <a class="dropdown-item" href="#">Courses</a>
+                        <a class="dropdown-item" href="#">O'Clock</a>
+                        <a class="dropdown-item" href="#">Titre Pro</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
                     </div>
                 </div>
             </div>
-        </div>
+            <button type="button" class="btn btn-link btn-sm">voir les archives</button>
+        </nav>
     </header>
     <main>
         
@@ -53,7 +60,7 @@
                     <button><a class="fas fa-trash" style="color: red"></a></button>
                 </div>
                 <div class="mb-n2 mt-2 p-0 progress container-fluid">
-                    <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    <div class="progress-bar" role="progressbar" style="width: 100%; background-color:  rgb(182, 180, 180); ;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
                 </div>
             </div>
         </div>
@@ -70,7 +77,7 @@
                     <button><a class="fas fa-trash" style="color: red"></a></button>
                 </div>
                 <div class="mb-n2 mt-2 p-0 progress container-fluid">
-                    <div class="progress-bar  mb-0" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    <div class="progress-bar  mb-0" role="progressbar" style="width: 100%; background-color:  rgb(182, 180, 180);" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
                 </div>
             </div>
         </div>
@@ -87,7 +94,7 @@
                     <button><a class="fas fa-trash" style="color: red"></a></button>
                 </div>
                 <div class="mb-n2 mt-2 p-0 progress container-fluid ">
-                    <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    <div class="progress-bar" role="progressbar" style="width: 100%; background-color: rgb(182, 180, 180);" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
                 </div>
             </div>
         </div>
