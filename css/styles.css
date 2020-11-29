@@ -1,0 +1,38 @@
+.hdr {
+    background-color: #FCFCFC;
+    border: 8px solid white;
+    border-style: outset;
+    margin: 0 auto;
+    box-shadow: inset 1px 0em 50px -2px white;
+}
+
+header div>div img {
+    max-width: 50px;
+    width: 50px;
+}
+
+body {
+    
+    background-image: linear-gradient(#FCFCFC, white, whitesmoke, antiquewhite);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+
+}
+
+.shadow-complete {
+    box-shadow: -11px 5px 10px #B8E846;
+    background-color:  #ceec87a8;
+    color: #777676;
+    font-weight: bold;
+}
+
+.shadow-incomplete {
+    box-shadow: 11px 5px 10px #B21D25;
+    background-color:  #a15a5da6;
+    color: #FCFCFC;
+}
+.shadow-started {
+    box-shadow: 0px 11px 10px #bda97bbb;
+    background-color: #bdb39ea1;
+    color: #FCFCFC;
+}
