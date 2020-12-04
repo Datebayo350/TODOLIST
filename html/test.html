@@ -1,46 +1,106 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <nav class="mb-4 mt-2 navbar navbar-expand-lg navbar-light bg-light rounded shadow container">
-            <div class="d-flex">
-                <img class="mt-2" src="../assets/images/check_icon.jpg" alt="Icône check">
-                <h1 class=" mr-5"><a class="navbar-brand">TODOLIST</a></h1>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" style="order: 4;">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="ml-4 row collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="d-flex justify-content-start col navbar-nav mr-auto mt-2 mt-lg-0"> 
-                    <li class="nav-item active"> 
-                        <a class="nav-link">Toutes </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"> Complètes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"> Incomplètes</a>
-                    </li>
-                </ul>
-            </div>
-            <div class=" mt-1 d-flex justify-content-center col">
-                <div class="input-group-append ">
-                    <button class="  mr-4 btn btn-outline-secondary btn-sm dropdown-toggle justify-content-between " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toutes les catégories</button>
-                    <div class=" ml-5 dropdown-menu">
-                        <a class="dropdown-item" href="#">Courses</a>
-                        <a class="dropdown-item" href="#">O'Clock</a>
-                        <a class="dropdown-item" href="#">Titre Pro</a>
-                        <div role="separator" class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
+            <div class="parent container mt-3 p-3 shadow-started">
+                <div class="row d-flex justify-content-around">
+                    <div class="title w-75 d-flex justify-content-between">
+                        <p>Acheter du pain</p>
+                        <p>Nom de la catégorie</p>
+                    </div>
+                    <div lass="d-flex justify-content-evenly">
+                        <button><a class="check fas fa-check-square" style="color: Dodgerblue"></a></button>
+                        <button><a class="modify fas fa-pen" style="color: purple"></a></button>
+                        <button><a class="delete fas fa-trash" style="color: red"></a></button>
+                    </div>
+                    <div class="mb-n2 mt-2 p-0 progress container-fluid">
+                        <div class="progress-bar  mb-0" role="progressbar" style="width: 43%;background-color: #7a7a7ac7; color:black" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100">43%</div>
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-link btn-sm">voir les archives</button>
-        </nav>
-</body>
-</html>
+
+            <div class="parent container mt-3 p-3 shadow-incomplete">
+                <div class="row d-flex justify-content-around">
+                    <div class="title w-75 d-flex justify-content-between">
+                        <p>Acheter du pain</p>
+                        <p>Nom de la catégorie</p>
+                    </div>
+                    <div lass="mr-2 d-flex justify-content-evenly">
+                        <button><a class="check fas fa-check-square" style="color: Dodgerblue"></a></button>
+                        <button><a class="modify fas fa-pen" style="color: purple"></a></button>
+                        <button><a class="delete fas fa-trash" style="color: red"></a></button>
+                    </div>
+                    <div class="mb-n2 mt-2 p-0 progress container-fluid ">
+                        <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #7a7a7ac7; color:black" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent container mt-3 p-3 shadow-complete">
+                <div class="row d-flex justify-content-around">
+                    <div class="title w-75 d-flex justify-content-between">
+                        <p>Acheter du pain</p>
+                        <p>Nom de la catégorie</p>
+                    </div>
+                    <div lass="d-flex justify-content-evenly">
+                        <button><a class="check fas fa-check-square" style="color: Dodgerblue"></a></button>
+                        <button><a class="modify fas fa-pen" style="color: purple"></a></button>
+                        <button><a class="delete fas fa-trash" style="color: red"></a></button>
+                    </div>
+                    <div class="mb-n2 mt-2 p-0 progress container">
+                        <div class="progress-bar" role="progressbar" style="width: 100%;background-color: #7a7a7ac7; color:black" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="parent container mt-3 p-3 shadow-started">
+                <div class="row d-flex justify-content-around">
+                    <div class="title w-75 d-flex justify-content-between">
+                        <p>Acheter du pain</p>
+                        <p>Nom de la catégorie</p>
+                    </div>
+                    <div lass="d-flex justify-content-evenly">
+                        <button><a class="check fas fa-check-square" style="color: Dodgerblue"></a></button>
+                        <button><a class="modify fas fa-pen" style="color: purple"></a></button>
+                        <button><a class="delete fas fa-trash" style="color: red"></a></button>
+                    </div>
+                    <div class="mb-n2 mt-2 p-0 progress container-fluid">
+                        <div class="progress-bar  mb-0" role="progressbar" style="width: 43%;background-color: #7a7a7ac7; color:black" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100">43%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="parent container mt-3 p-3 shadow-incomplete">
+                <div class="row d-flex justify-content-around">
+                    <div class=" title w-75 d-flex justify-content-between">
+                        <p>Acheter du pain</p>
+                        <p>Nom de la catégorie</p>
+                    </div>
+                    <div lass="mr-2 d-flex justify-content-evenly">
+                        <button><a class="check fas fa-check-square" style="color: Dodgerblue"></a></button>
+                        <button><a class="modify fas fa-pen" style="color: purple"></a></button>
+                        <button><a class="delete fas fa-trash" style="color: red"></a></button>
+                    </div>
+                    <div class="mb-n2 mt-2 p-0 progress container-fluid ">
+                        <div class="progress-bar" role="progressbar" style="width: 0%; background-color: #7a7a7ac7; color:black" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form action="" method="post" class="p-1 mt-3 main-form container ">
+            <div class="row row-col-2 container ">   
+                <div class="form-group">
+                    <label >Tâche </label>
+                    <input type="text" class="form-control" name="Task Title" placeholder="Titre de la tâche">
+                </div>
+                <div class="form-group">
+                    <label >Tâche </label>
+                    <input type="text" class="form-control" name="Task Title" placeholder="Titre de la tâche">
+                </div>
+                <div class="form-group">
+                    <label>Catégorie</label>
+                    <input type="text" class="form-control" name="Task Category" placeholder="Catégorie de la tâche">
+                </div>
+                <div class="form-group">
+                    <label>Catégorie</label>
+                    <input type="text" class="form-control" name="Task Category" placeholder="Catégorie de la tâche">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default btn-primary container-fluid"> Submit </button>
+        </form>

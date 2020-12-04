@@ -7,7 +7,9 @@ var todolist = {
 
         checks.forEach(index => index.addEventListener('click', todolist.handleCheckButton));
         delets.forEach(index => index.addEventListener('click', todolist.handleDeleteButton));
-        modifys.forEach(index => index.addEventListener('click', todolist.handleModifyButton));
+        modifys.forEach(index => index.addEventListener('click', todolist.handleModifyButton,true));
+
+        
     },
 
     handleCheckButton: function(event){
@@ -29,45 +31,40 @@ var todolist = {
     },
 
     handleModifyButton: function(clickModify){
-       console.log(clickModify);
-        var divTitle = clickModify.target.parentNode.parentNode.previousElementSibling;
+        // var divTitle = clickModify.target.parentNode.parentNode.previousElementSibling;
+        
+        var divTitle = this.parentNode.parentNode.previousElementSibling;
+        var inputs = divTitle.querySelectorAll('input');
+        var paragraphs = divTitle.querySelectorAll('p');
         var titleChildrens = divTitle.children;
-       
-        for(index = 0; index <titleChildrens.length; index++) {
-            
-            titleChildrens[index].classList.toggle('editable');
-                
-                if(clickModify.target.classList.contains('fa-pen') === true ){
-                    console.log("C'est true")
-                
-                    titleChildrens[index].addEventListener('click', (clickOnEditableFields)=>{
-                        var field = clickOnEditableFields.target;
+        
+        var input1Value = inputs[0].value = paragraphs[0].innerHTML;
+        var input2Value = inputs[1].value = paragraphs[1].innerHTML;
 
-                        field.setAttribute('contenteditable', 'true');   
-                
-                        field.addEventListener('focusout', (outOfField)=>{
+        var input1 = inputs[0];
+        var input2 = inputs[1];
 
-                                console.log('SORTI =>',outOfField);
-                                field.classList.remove('editable');
-                                field.removeAttribute('contenteditable');
-                                console.log(clickModify);
-                        })  
-                    })
+        console.log(inputs);
+        
+        
+        inputs.forEach(input => 
                 
-                }else{
-                    clickModify.stopPropagation();
+            input.classList.remove('d-none')
 
-                }
-                
-        }
+        );
+
+        paragraphs.forEach(p => 
+        
+            p.classList.add('d-none')
+        
+
+        );
+        inputs.forEach(input => input.addEventListener('blur', (event) => {
+            event.target.style.background = 'pink';    
+          }));
+         
+        
     }
-           
-
-       
-
 }
-
-
-
 
 todolist.init();
