@@ -134,8 +134,9 @@ var todolist = {
         var formTitle = document.querySelector('.formTitle_task');
         var formCategory = document.querySelector('.formCategory_task');
         var formProgress = document.querySelector('.formProgress_task');
+        var parentProgress = formProgress.parentNode;
         
-        // console.log(formProgress, formProgress.value);
+        console.log(parentProgress);
         
 
         // @see https://stackoverflow.com/questions/39372886/document-importnode-vs-node-clonenode-real-example
@@ -152,24 +153,52 @@ var todolist = {
         var templateCategory = cloneTemplateFragment.querySelector('.templateCategory_task');
         var templateProgress = cloneTemplateFragment.querySelector('.templateProgress_task');
 
-        templateTitle.innerHTML = formTitle.value;
-        templateParent.classList.add('shadow-test'); 
-        templateCategory.innerHTML = formCategory.value;
-
-        templateProgress.innerHTML = formProgress.value + '%';
-        templateProgress.style.width = formProgress.value + '%';
-        templateProgress.style.value = formProgress.value + '%';
-        templateProgress.setAttribute('value',formProgress.value + '%');
-        templateProgress.setAttribute('aria-valuenow',formProgress.value + '%');
-
+        var inputVal = formProgress.value; 
+        // console.log(typeof inputVal);
         
-        // @see https://stackoverflow.com/questions/11475232/find-the-element-before-and-after-a-specific-element-with-pure-javascript
-        // @see https://stackoverflow.com/questions/618089/can-i-insert-elements-to-the-beginning-of-an-element-using-appendchild
-        parentTasks.insertBefore(templateParent, parentTasks.firstChild);
-        // progress.style.backgroundColor = "red";
+        //! Attention : l'expression n'est pass entouré de quotes
+        //? If contains something none digital 0 or + don't match, match only digits
+        var regex =/^(?!.*\D)\d+/g;
+        // console.log(typeof regex);
+
+        var matchRegex = inputVal.match(regex);
+        // console.log(typeof matchRegex);
         
-        //Call again the methode to give us the possibility to ediy the news tasks
-        todolist.bindEventsToTheTask(templateParent);
+        if(matchRegex !== null){
+            
+            // Handle Progress bar
+            templateProgress.innerHTML = formProgress.value + '%';
+            templateProgress.style.width = formProgress.value + '%';
+            templateProgress.style.value = formProgress.value + '%';
+            templateProgress.setAttribute('value',formProgress.value + '%');
+            templateProgress.setAttribute('aria-valuenow',formProgress.value + '%');
+            
+            //Handle Header task
+            templateTitle.innerHTML = formTitle.value;
+            templateParent.classList.add('shadow-test'); 
+            templateCategory.innerHTML = formCategory.value;
+
+            
+            // @see https://stackoverflow.com/questions/11475232/find-the-element-before-and-after-a-specific-element-with-pure-javascript
+            // @see https://stackoverflow.com/questions/618089/can-i-insert-elements-to-the-beginning-of-an-element-using-appendchild
+            parentTasks.insertBefore(templateParent, parentTasks.firstChild);
+            // progress.style.backgroundColor = "red";
+            
+            //Call again the methode to give us the possibility to ediy the news tasks
+            todolist.bindEventsToTheTask(templateParent);
+
+
+        }else{
+            var errorMessage = document.createElement('div');
+            errorMessage.innerHTML = 'Veuillez renseigner des chiffres';
+            errorMessage.className='invalid-feedback';
+
+            parentProgress.appendChild(errorMessage);
+            formProgress.classList.add('is-invalid')
+            
+        }
+
+     
     },
     
     /**
