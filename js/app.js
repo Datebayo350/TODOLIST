@@ -135,6 +135,8 @@ var todolist = {
         var formCategory = document.querySelector('.formCategory_task');
         var formProgress = document.querySelector('.formProgress_task');
         
+        // console.log(formProgress, formProgress.value);
+        
 
         // @see https://stackoverflow.com/questions/39372886/document-importnode-vs-node-clonenode-real-example
         // @see https://developer.mozilla.org/fr/docs/Web/API/Node/cloneNode
@@ -153,7 +155,13 @@ var todolist = {
         templateTitle.innerHTML = formTitle.value;
         templateParent.classList.add('shadow-test'); 
         templateCategory.innerHTML = formCategory.value;
-        templateProgress.innerHTML = formProgress.value;
+
+        templateProgress.innerHTML = formProgress.value + '%';
+        templateProgress.style.width = formProgress.value + '%';
+        templateProgress.style.value = formProgress.value + '%';
+        templateProgress.setAttribute('value',formProgress.value + '%');
+        templateProgress.setAttribute('aria-valuenow',formProgress.value + '%');
+
         
         // @see https://stackoverflow.com/questions/11475232/find-the-element-before-and-after-a-specific-element-with-pure-javascript
         // @see https://stackoverflow.com/questions/618089/can-i-insert-elements-to-the-beginning-of-an-element-using-appendchild
@@ -193,10 +201,6 @@ var todolist = {
                         
                         
                     }
-                    
-                    
-                    
-        
                 }
             })
         }

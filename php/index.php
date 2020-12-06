@@ -60,7 +60,7 @@
                         <button><span class="delete fas fa-trash" style="color: red"></span></button>
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
-                        <div class="progress-bar" role="progressbar" style="width: 100%;background-color: #7a7a7ac7; color:black" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                        <div class="progress-bar" name="progress bar" value="" role="progressbar" style="width: 100%;background-color: #7a7a7ac7; color:black" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                         <button><span class="delete fas fa-trash" style="color: red"></span></button>
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
-                        <div class="progress-bar" role="progressbar" style="width: 55%;background-color: #7a7a7ac7; color:black" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
+                        <div class="progress-bar" name="progress bar" value="" role="progressbar" style="width: 55%;background-color: #7a7a7ac7; color:black" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                         <button><span class="delete fas fa-trash" style="color: red"></span></button>
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
-                        <div class="progress-bar" role="progressbar" style="width: 0%;background-color: #7a7a7ac7; color:black" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                        <div class="progress-bar" name="progress bar" value="" role="progressbar" style="width: 0%;background-color: #7a7a7ac7; color:black" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                         <button><span class="delete fas fa-trash" style="color: red"></span></button>
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
-                        <div class="progress-bar" role="progressbar" style="width: 100%;background-color: #7a7a7ac7; color:black" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                        <div class="progress-bar" name="progress bar" value="" role="progressbar" style="width: 100%;background-color: #7a7a7ac7; color:black" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                         <button><span class="delete fas fa-trash" style="color: red"></span></button>
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
-                        <div class="progress-bar" role="progressbar" style="width: 55%;background-color: #7a7a7ac7; color:black" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
+                        <div class="progress-bar" name="progress bar" value="" role="progressbar" style="width: 55%;background-color: #7a7a7ac7; color:black" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                         <button><span class="delete fas fa-trash" style="color: red"></span></button>
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
-                        <div class="progress-bar" role="progressbar" style="width: 0%;background-color: #7a7a7ac7; color:black" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                        <div class="progress-bar" name="progress bar" value="" role="progressbar" style="width: 0%;background-color: #7a7a7ac7; color:black" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
                     </div>
                 </div>
             </div>
@@ -197,7 +197,7 @@
                         <button><span class="delete fas fa-trash" style="color: red"></span></button>
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
-                        <div class="progress-bar templateProgress_task" role="progressbar" style="background-color: #7a7a7ac7; color:black" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar templateProgress_task" name="progress bar" value="" role="progressbar" style="background-color: #7a7a7ac7; color:black" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>
