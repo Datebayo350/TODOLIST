@@ -166,11 +166,11 @@
                     <input type="text" class="form-control formCategory_task" name="Task Category" placeholder="Catégorie de la tâche">
                 </div>
                 <!-- <div class="w-100"></div> -->
-                <div class="form-group col-8">
+                <div class="form__parent--progressBar form-group col-8">
                     <label>Pourcentage % </label>
                     <input  type="number" class="form-control formProgress_task" name="Task Progress" value="" placeholder="Progession de la tâche">
+                    <div class='error'></div>
                 </div>
-               
             </div>
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-default btn-primary rounded-pill"> 

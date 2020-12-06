@@ -1,4 +1,29 @@
 var todolist = {
+    errors: [],
+    countAndDisplayErrors: function(){
+        var errorContainer = document.querySelector('.error');
+        
+        console.log(errorContainer);
+        
+        todolist.errors.forEach(function(error){ 
+            console.log(error);
+            
+            if (todolist.errors !== null){
+                errorContainer.appendChild(error)
+
+                // console.log;
+            }
+        
+        })
+    },
+    cleanErrors: function(){
+        var errorContainer = document.querySelector('.error');
+        
+        var formProgress = document.querySelector('.formProgress_task');
+        formProgress.classList.remove('is-invalid');
+        todolist.errors.length = 0;
+        errorContainer.innerHTML = '';
+    },
 
     init: function(){
         // var submitNewTaskButton = document.querySelector('button[type=submit');
@@ -127,16 +152,16 @@ var todolist = {
 
     handleAddNewTask: function(event){
         event.preventDefault();
-        console.log(event);
+        todolist.cleanErrors();
+
         var parentTasks = document.querySelector('.parent__tasks');
         var template = document.querySelector('template');
         
         var formTitle = document.querySelector('.formTitle_task');
         var formCategory = document.querySelector('.formCategory_task');
         var formProgress = document.querySelector('.formProgress_task');
-        var parentProgress = formProgress.parentNode;
         
-        console.log(parentProgress);
+        // console.log(parentProgress);
         
 
         // @see https://stackoverflow.com/questions/39372886/document-importnode-vs-node-clonenode-real-example
@@ -158,6 +183,7 @@ var todolist = {
         
         //! Attention : l'expression n'est pass entouré de quotes
         //? If contains something none digital 0 or + don't match, match only digits
+        https://stackoverflow.com/questions/21096240/regex-dont-match-if-containing-a-specific-string
         var regex =/^(?!.*\D)\d+/g;
         // console.log(typeof regex);
 
@@ -189,16 +215,17 @@ var todolist = {
 
 
         }else{
-            var errorMessage = document.createElement('div');
-            errorMessage.innerHTML = 'Veuillez renseigner des chiffres';
-            errorMessage.className='invalid-feedback';
-
-            parentProgress.appendChild(errorMessage);
-            formProgress.classList.add('is-invalid')
+            var p = document.createElement('p');
+            p.classList.add("text-danger");
+            p.innerHTML = 'Veuillez renseigner des chiffres';
+            
+            todolist.errors.push(p); 
+            formProgress.classList.add('is-invalid');
+            console.log('ELSE', todolist.errors);
             
         }
+        todolist.countAndDisplayErrors();
 
-     
     },
     
     /**
@@ -234,6 +261,7 @@ var todolist = {
             })
         }
     },
+    
 
     
     
