@@ -31,6 +31,7 @@ var todolist = {
 
         var form = document.querySelector('form');
         form.addEventListener('submit', todolist.handleAddNewTask);
+        
         todolist.getTheTask();
     },
     
@@ -112,10 +113,12 @@ var todolist = {
         //#2
         // Recover the parent__task div
         var divTitle = event.path[3];
-
+        
         // Select all her inputs
         var inputs = divTitle.querySelectorAll('input');
         // console.log('MES INPUTS', inputs[1]);
+        inputs[0].focus();
+        
         //! Clean the value of the inputs each time the event happend, it provides us to don't cumulates the values of the lasts editings
         inputs.forEach(input=> input.value='')
         var paragraphs = divTitle.querySelectorAll('p');
@@ -146,7 +149,6 @@ var todolist = {
         
 
         );
-        console.log(event);
         
     },
 
@@ -154,6 +156,8 @@ var todolist = {
         event.preventDefault();
         todolist.cleanErrors();
 
+        console.log('TEST', event);
+        
         var parentTasks = document.querySelector('.parent__tasks');
         var template = document.querySelector('template');
         
@@ -254,6 +258,7 @@ var todolist = {
                         paragraphs[i].innerHTML = inputs[i].value;
                         paragraphs[i].classList.remove('d-none');
                         inputs[i].classList.add('d-none');
+
                         
                         
                     }
