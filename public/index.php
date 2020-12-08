@@ -31,7 +31,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Toutes les catégories
                         </a>
-                        <div id="navbar_dropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div id="navbar_dropdown " style="max-height: 250px; overflow-y:scroll" class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Titre Pro</a>
                             <a class="dropdown-item" href="#">O'Clock</a>
                             <div class="dropdown-divider"></div>
@@ -197,7 +197,7 @@
                         <button><span class="delete fas fa-trash" style="color: red"></span></button>
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
-                        <div class="progress-bar templateProgress_task" name="progress bar" value="" role="progressbar" style="    background-color: rgba(218, 218, 218, 0.966)(218, 218, 218, 0.966); color:black" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar templateProgress_task" name="progress bar" value="" role="progressbar" style="    background-color: rgba(218, 218, 218, 0.966); color:black" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>

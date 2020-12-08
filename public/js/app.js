@@ -1,29 +1,8 @@
 var todolist = {
     errors: [],
-    countAndDisplayErrors: function(){
-        var errorContainer = document.querySelector('.error');
-        
-        console.log(errorContainer);
-        
-        todolist.errors.forEach(function(error){ 
-            console.log(error);
-            
-            if (todolist.errors !== null){
-                errorContainer.appendChild(error)
+  
+    apiUrl524: "https://benoclock.github.io/S07-todolist",
 
-                // console.log;
-            }
-        
-        })
-    },
-    cleanErrors: function(){
-        var errorContainer = document.querySelector('.error');
-        
-        var formProgress = document.querySelector('.formProgress_task');
-        formProgress.classList.remove('is-invalid');
-        todolist.errors.length = 0;
-        errorContainer.innerHTML = '';
-    },
 
     init: function(){
         // var submitNewTaskButton = document.querySelector('button[type=submit');
@@ -33,6 +12,77 @@ var todolist = {
         form.addEventListener('submit', todolist.handleAddNewTask);
         
         todolist.getTheTask();
+        // console.log(todolist.getTasksFromApi());
+    },
+    
+    getTasksFromApi: function () {
+        
+        // Return 
+        todolist.requestAPI('/tasks.json');
+    },
+
+    getCategoriesFromApi: function(){
+
+        todolist.requestAPI('/categories.json');
+    },
+
+    requestAPI: async function(endpoint){
+
+        let container = document.querySelector('.parent__tasks');
+
+            regexTasks = /(?=tasks\.json).*/g;
+            regexCategories = /(?=categories\.json).*/g;
+
+            
+            let fetchOptions = {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache',
+            }
+            
+            let response = await fetch(todolist.apiUrl524 + endpoint, fetchOptions);
+            
+            let url = response.url;
+            
+            matchRegexTasks = url.match(regexTasks);
+            matchRegexCategories = url.match(regexCategories);
+            
+            if( matchRegexTasks !== null || matchRegexCategories !== null){
+
+                //The parsed promise
+                let jsonDataTasks = await response.json();
+                
+                // console.log('jsonDataTasks =>', jsonDataTasks);
+
+                //For each object in the aray 
+                jsonDataTasks.forEach(function(item){
+                    
+                    //  very meaningfull => console.log('item', item);
+                    let dropdownMenu = document.querySelector('.dropdown-menu');
+                    console.log(dropdownMenu);
+                    
+                    if(item.title !== undefined) {
+                        let newItem = document.createElement('p');
+                        newItem.className = 'task__from--API';
+                        newItem.innerHTML = item.title;
+                        // console.log('Je passe ici 1', item.title);
+                        
+                        container.appendChild(newItem);
+                        
+                    } 
+                    else if (item.title === undefined) {
+                        let newItem = document.createElement('a');
+                        newItem.className = 'dropdown-item';
+                        newItem.innerHTML = item.name;
+                        console.log('Je passe ici 2', newItem);
+
+                        dropdownMenu.appendChild(newItem);
+                    }
+                  
+                })
+            }
+
+      
     },
     
     getTheTask: function () {
@@ -152,7 +202,7 @@ var todolist = {
         
     },
 
-    handleAddNewTask: function(event){
+    handleAddNewTask: function(event, category = null, param2 = null){
         event.preventDefault();
         todolist.cleanErrors();
 
@@ -171,13 +221,13 @@ var todolist = {
         // @see https://stackoverflow.com/questions/39372886/document-importnode-vs-node-clonenode-real-example
         // @see https://developer.mozilla.org/fr/docs/Web/API/Node/cloneNode
         //? Select the template, get the content, clone it and 'true' to say that we want to clone his childrens too
-        var cloneTemplateFragment = document.importNode(template.content,true)
-        //! This one is a document fragment
+        var cloneTemplateFragment = document.importNode(template.content, true)
+        
+        //! This one is a document fragment, do not use it
         // var cloneTemplateFragment = document.getElementById('template').content.cloneNode(true);
-        //! This one is a an element, so add this one on the flow, not the above one
+        
+        //! This one is an element, so add this one on the flow, not the above one
         var templateParent = cloneTemplateFragment.querySelector('.parent__task');
-       
-
         var templateTitle = cloneTemplateFragment.querySelector('.templateTitle_task');
         var templateCategory = cloneTemplateFragment.querySelector('.templateCategory_task');
         var templateProgress = cloneTemplateFragment.querySelector('.templateProgress_task');
@@ -185,8 +235,8 @@ var todolist = {
         var inputVal = formProgress.value; 
         // console.log(typeof inputVal);
         
-        //! Attention : l'expression n'est pass entouré de quotes
-        //? If contains something none digital 0 or + don't match, match only digits
+        //! Becareful : Expression aren't cercled by quotes
+        //? If contains something none digital one time or more don't match, match only digits
         https://stackoverflow.com/questions/21096240/regex-dont-match-if-containing-a-specific-string
         var regex =/^(?!.*\D)\d+/g;
         // console.log(typeof regex);
@@ -228,7 +278,19 @@ var todolist = {
             console.log('ELSE', todolist.errors);
             
         }
+
         todolist.countAndDisplayErrors();
+
+    },
+
+    addFromApi: function(){
+
+        // 1. J'ai besoin des informations venant de l'API : - Nom de la tâche, - Sa catégorie.
+        // 2. L52 on obtient les tâches, L67 on obtient les catégories - Fonction requestAPI
+        // 3. Créer le container qui affichera la tâche : Fonction handleNewTask L241 
+        // 4. Ajouter la tâche au container de toutes les tâches : l258 Fonction handleAddNewTask
+        // 5. Lui appliquer les event : L262 Fonction handleNewTask
+
 
     },
     
@@ -260,18 +322,39 @@ var todolist = {
                         inputs[i].classList.add('d-none');
 
                         
-                        
                     }
                 }
             })
         }
     },
-    
 
-    
-    
+    countAndDisplayErrors: function(){
+        var errorContainer = document.querySelector('.error');
+        
+        console.log(errorContainer);
+        
+        todolist.errors.forEach(function(error){ 
+            console.log(error);
+            
+            if (todolist.errors !== null){
+                errorContainer.appendChild(error)
+
+                // console.log;
+            }
+        
+        })
+    },
+
+    cleanErrors: function(){
+        var errorContainer = document.querySelector('.error');
+        
+        var formProgress = document.querySelector('.formProgress_task');
+        formProgress.classList.remove('is-invalid');
+        todolist.errors.length = 0;
+        errorContainer.innerHTML = '';
+    },
         
 }
 
-
-todolist.init();
+todolist.getTasksFromApi();
+todolist.getCategoriesFromApi();
