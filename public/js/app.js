@@ -1,8 +1,9 @@
 var todolist = {
     errors: [],
+    
+    categories: new Array(),
   
     apiUrl524: "https://benoclock.github.io/S07-todolist",
-
 
     init: function(){
         // var submitNewTaskButton = document.querySelector('button[type=submit');
@@ -12,79 +13,114 @@ var todolist = {
         form.addEventListener('submit', todolist.handleAddNewTask);
         
         todolist.getTheTask();
-        // console.log(todolist.getTasksFromApi());
+        todolist.getJsonData();
+        // todolist.getTasksFromApi();
+        // todolist.getCategoriesFromApi();
+
+    },
+    
+    getJsonData: function() {
+        todolist.requestAPI('/tasks.json','/categories.json')
     },
     
     getTasksFromApi: function () {
         
-        // Return 
-        todolist.requestAPI('/tasks.json');
+        // todolist.requestAPI('/tasks.json');
     },
 
     getCategoriesFromApi: function(){
 
-        todolist.requestAPI('/categories.json');
+        // todolist.requestAPI('/categories.json');
     },
 
-    requestAPI: async function(endpoint){
+    requestAPI: function(tasks, categories){
+        
+        // let regexTasks = /(?=tasks\.json).*/g;
+        // let regexCategories = /(?=categories\.json).*/g;
 
-        let container = document.querySelector('.parent__tasks');
+        
+        // let url1 = promesseTask.url;
+        // let url2 = promesseCategory.url;
+        
+        // matchRegexCategories = url1.match(regexCategories);
+        // matchRegexTasks = url2.match(regexTasks);
+        let fetchOptions = {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+        }
+            
+        let promesseTask = fetch(todolist.apiUrl524 + tasks, fetchOptions)
 
-            regexTasks = /(?=tasks\.json).*/g;
-            regexCategories = /(?=categories\.json).*/g;
+        .then(function(jsonDataTasksBrut) {
+            // console.log(jsonDataTasksBrut);
+            return jsonDataTasksBrut.json();
+        })
+        .then(function(tasks){
 
-            
-            let fetchOptions = {
-                method: 'GET',
-                mode: 'cors',
-                cache: 'no-cache',
-            }
-            
-            let response = await fetch(todolist.apiUrl524 + endpoint, fetchOptions);
-            
-            let url = response.url;
-            
-            matchRegexTasks = url.match(regexTasks);
-            matchRegexCategories = url.match(regexCategories);
-            
-            if( matchRegexTasks !== null || matchRegexCategories !== null){
-
-                //The parsed promise
-                let jsonDataTasks = await response.json();
+            tasks.forEach(task => {
+                // console.log(task);
                 
-                // console.log('jsonDataTasks =>', jsonDataTasks);
+                todolist.handleAddNewTask(null,task,null)
+            });
+        });
 
-                //For each object in the aray 
-                jsonDataTasks.forEach(function(item){
-                    
-                    //  very meaningfull => console.log('item', item);
-                    let dropdownMenu = document.querySelector('.dropdown-menu');
-                    console.log(dropdownMenu);
-                    
-                    if(item.title !== undefined) {
-                        let newItem = document.createElement('p');
-                        newItem.className = 'task__from--API';
-                        newItem.innerHTML = item.title;
-                        // console.log('Je passe ici 1', item.title);
-                        
-                        container.appendChild(newItem);
-                        
-                    } 
-                    else if (item.title === undefined) {
-                        let newItem = document.createElement('a');
-                        newItem.className = 'dropdown-item';
-                        newItem.innerHTML = item.name;
-                        console.log('Je passe ici 2', newItem);
+        let promesseCategory =  fetch(todolist.apiUrl524 + categories, fetchOptions)
 
-                        dropdownMenu.appendChild(newItem);
-                    }
-                  
-                })
-            }
+        .then(function(jsonCategoryBrut) {
+            // console.log(jsonCategoryBrut);
+            return jsonCategoryBrut.json();
+        })
+        .then(function(categories){
 
-      
-    },
+            categories.forEach(category => {
+                console.log(category);
+                todolist.categories.push(category)
+            });
+        });
+
+       
+        
     
+        
+        // if(matchRegexCategories !== null){
+            
+        //     //The parsed promise
+            
+        //      // console.log('1 Resultats 1 Appels', jsonDataTasks);
+ 
+        //     jsonData1.forEach(function(item){
+        //         // console.log('12 Resultats 12 Appels', item);
+            
+        //         if(item.name !== undefined){
+            
+        //             // console.log('4x name', item.name);
+                    
+        //             todolist.categories.push(item);
+                    
+                   
+                
+        //         }
+           
+        //     })
+        // }
+                
+        // if( matchRegexTasks !== null){
+           
+        //     jsonData2.forEach(function(item){
+        //         if(item.title !== undefined){
+            
+        //             todolist.handleAddNewTask(null, item);
+                
+        //         }
+        //     })
+            
+        // }
+    }, 
+    
+      
+    
+        
     getTheTask: function () {
         
         // Recover the task container
@@ -202,11 +238,11 @@ var todolist = {
         
     },
 
-    handleAddNewTask: function(event, category = null, param2 = null){
-        event.preventDefault();
+    handleAddNewTask: function(event = null, task = null){
+        event = event || null;
+        
         todolist.cleanErrors();
 
-        console.log('TEST', event);
         
         var parentTasks = document.querySelector('.parent__tasks');
         var template = document.querySelector('template');
@@ -228,55 +264,116 @@ var todolist = {
         
         //! This one is an element, so add this one on the flow, not the above one
         var templateParent = cloneTemplateFragment.querySelector('.parent__task');
+
         var templateTitle = cloneTemplateFragment.querySelector('.templateTitle_task');
         var templateCategory = cloneTemplateFragment.querySelector('.templateCategory_task');
         var templateProgress = cloneTemplateFragment.querySelector('.templateProgress_task');
 
         var inputVal = formProgress.value; 
         // console.log(typeof inputVal);
-        
-        //! Becareful : Expression aren't cercled by quotes
-        //? If contains something none digital one time or more don't match, match only digits
-        https://stackoverflow.com/questions/21096240/regex-dont-match-if-containing-a-specific-string
-        var regex =/^(?!.*\D)\d+/g;
-        // console.log(typeof regex);
+     
+        if(event !== null){
+            event.preventDefault();
+            
+            //! Becareful : Expression aren't cercled by quotes
+            //? If contains something none digital one time or more don't match, match only digits
+            https://stackoverflow.com/questions/21096240/regex-dont-match-if-containing-a-specific-string
+            var regex =/^(?!.*\D)\d+/g;
+            // console.log(typeof regex);
 
-        var matchRegex = inputVal.match(regex);
-        // console.log(typeof matchRegex);
-        
-        if(matchRegex !== null){
+            var matchRegex = inputVal.match(regex);
+            // console.log(typeof matchRegex);
             
-            // Handle Progress bar
-            templateProgress.innerHTML = formProgress.value + '%';
-            templateProgress.style.width = formProgress.value + '%';
-            templateProgress.style.value = formProgress.value + '%';
-            templateProgress.setAttribute('value',formProgress.value + '%');
-            templateProgress.setAttribute('aria-valuenow',formProgress.value + '%');
-            
-            //Handle Header task
-            templateTitle.innerHTML = formTitle.value;
-            templateParent.classList.add('shadow-test'); 
-            templateCategory.innerHTML = formCategory.value;
+            if(matchRegex !== null){
+                
+                // Handle Progress bar
+                templateProgress.innerHTML = formProgress.value + '%';
+                templateProgress.style.width = formProgress.value + '%';
+                templateProgress.style.value = formProgress.value + '%';
+                templateProgress.setAttribute('value',formProgress.value + '%');
+                templateProgress.setAttribute('aria-valuenow',formProgress.value + '%');
+                
+                //Handle Header task
+                templateTitle.innerHTML = formTitle.value;
+                templateParent.classList.add('shadow-form'); 
+                templateCategory.innerHTML = formCategory.value;
 
+                
+                // @see https://stackoverflow.com/questions/11475232/find-the-element-before-and-after-a-specific-element-with-pure-javascript
+                // @see https://stackoverflow.com/questions/618089/can-i-insert-elements-to-the-beginning-of-an-element-using-appendchild
+                parentTasks.insertBefore(templateParent, parentTasks.firstChild);
+                // progress.style.backgroundColor = "red";
+                
+                //Call again the methode to give us the possibility to ediy the news tasks
+                todolist.bindEventsToTheTask(templateParent);
+
+            }else{
+                var p = document.createElement('p');
+                p.classList.add("text-danger");
+                p.innerHTML = 'Veuillez renseigner des chiffres';
+                
+                todolist.errors.push(p); 
+                formProgress.classList.add('is-invalid');
+                // console.log('ELSE', todolist.errors);
+                
+            }
+       
+        }else{
+            //   var categories = todolist.categories;
+              
+              if (task !== null) {
+                
+                console.log('Appel au taches =>',task);
+                templateTitle.innerHTML = task.title;
+                
+                if(task.completion !== null  && task.completion === 100){
+                    
+                    templateParent.classList.add('shadow-api_complete','task__from--API'); 
+
+                    // Handle Progress bar
+                    templateProgress.innerHTML = task.completion + '%';
+                    templateProgress.style.width = task.completion + '%';
+                    templateProgress.style.value = task.completion + '%';
+                    templateProgress.setAttribute('value',task.completion + '%');
+                    templateProgress.setAttribute('aria-valuenow',task.completion + '%');
+                    
+                }else if(task.completion !== null && task.completetion !== 100){
+                    templateParent.classList.add('shadow-api_incomplete','task__from--API'); 
+                    
+                    templateProgress.innerHTML = '0%';
+                    templateProgress.style.width = '0%';
+                    templateProgress.style.value = '0%';
+                    templateProgress.setAttribute('value','0%');
+                    templateProgress.setAttribute('aria-valuenow','0%');
+                    
+
+                }
             
+            }
+            
+            for (i = 0; i < 1; i++){
+                
+                if(todolist.categories !== null) {
+                
+                    console.log('Appel au categories =>',todolist.categories);
+                    templateCategory.innerHTML = todolist.categories[1].name
+                }
+            }
+            
+            
+                
+                
+
+                
+            
+
             // @see https://stackoverflow.com/questions/11475232/find-the-element-before-and-after-a-specific-element-with-pure-javascript
             // @see https://stackoverflow.com/questions/618089/can-i-insert-elements-to-the-beginning-of-an-element-using-appendchild
             parentTasks.insertBefore(templateParent, parentTasks.firstChild);
-            // progress.style.backgroundColor = "red";
             
             //Call again the methode to give us the possibility to ediy the news tasks
             todolist.bindEventsToTheTask(templateParent);
 
-
-        }else{
-            var p = document.createElement('p');
-            p.classList.add("text-danger");
-            p.innerHTML = 'Veuillez renseigner des chiffres';
-            
-            todolist.errors.push(p); 
-            formProgress.classList.add('is-invalid');
-            console.log('ELSE', todolist.errors);
-            
         }
 
         todolist.countAndDisplayErrors();
@@ -290,7 +387,6 @@ var todolist = {
         // 3. Créer le container qui affichera la tâche : Fonction handleNewTask L241 
         // 4. Ajouter la tâche au container de toutes les tâches : l258 Fonction handleAddNewTask
         // 5. Lui appliquer les event : L262 Fonction handleNewTask
-
 
     },
     
@@ -331,21 +427,17 @@ var todolist = {
     countAndDisplayErrors: function(){
         var errorContainer = document.querySelector('.error');
         
-        console.log(errorContainer);
-        
         todolist.errors.forEach(function(error){ 
-            console.log(error);
             
             if (todolist.errors !== null){
                 errorContainer.appendChild(error)
-
-                // console.log;
             }
         
         })
     },
 
     cleanErrors: function(){
+        
         var errorContainer = document.querySelector('.error');
         
         var formProgress = document.querySelector('.formProgress_task');
@@ -356,5 +448,6 @@ var todolist = {
         
 }
 
-todolist.getTasksFromApi();
-todolist.getCategoriesFromApi();
+todolist.init();
+
+
