@@ -13,11 +13,11 @@
     <!-- <link rel="stylesheet" href="../css/reset.css"> Pas utile, bootstrap dispose de son propre reset -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>TODOLIST - Constantin</title>
+    <title>TODOLIST </title>
 </head>
-<body>
+<body class = 'dark__Theme font-weight-bold'>
     <header>       
-        <nav class="navbar navbar-expand-lg navbar-light container shadow rounded">
+        <nav class="navbar navbar-expand-lg navbar-light shadow rounded container">
             <a href="" class="navbar-brand"><img src="../assets/images/check_icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="Check icon">Todolist</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation_menu" aria-controls="navbar menue" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,22 +31,21 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Toutes les catégories
                         </a>
-                        <div id="navbar_dropdown" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div id="navbar_dropdown " style="max-height: 250px; overflow-y:scroll" class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Titre Pro</a>
                             <a class="dropdown-item" href="#">O'Clock</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Preparation</a>
                         </div>
                     </li>
-                    <li class="nav-item"><a href="" class="nav-link border-bottom border-primary text-primary">Voir les archives</a></li>
-
+                    <!-- <li class="nav-item"><a href="" class="nav-link border-bottom border-primary text-primary">Voir les archives</a></li> -->
                 </ul>
             </div>
         </nav>
     </header>
     <main>
         <div class="parent__tasks container mt-3" id='test' style="max-height: 450px; overflow-y:scroll">
-            <div class="parent__task container mt-3 p-3 shadow-complete">
+            <div class="parent__task container shadow-complete static mt-3 p-3">
                 <div class="parent__row row d-flex justify-content-around">
                     <div class="task__header w-75 d-flex justify-content-between">
                         <p class="task__paragraph task__title">Acheter du pain</p>
@@ -61,10 +60,11 @@
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
                         <div class="progress-bar" name="progress bar" value="" role="progressbar" style="width: 100%;background-color:rgba(218, 218, 218, 0.966); color:black" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                        <input type="number" class="task__input--progress form-control mx-auto my-1 w-25 d-none" >
                     </div>
                 </div>
             </div>
-            <div class="parent__task container mt-3 p-3 shadow-started">
+            <div class="parent__task container shadow-started static mt-3 p-3">
                 <div class="parent__row row d-flex justify-content-around">
                     <div class="task__header w-75 d-flex justify-content-between">
                         <p class="task__paragraph task__title">Acheter du pain</p>
@@ -79,10 +79,11 @@
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
                         <div class="progress-bar" name="progress bar" value="" role="progressbar" style="width: 55%;background-color: rgba(218, 218, 218, 0.966); color:black" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
+                        <input type="number" class ="task__input--progress form-control m-auto w-25 d-none">
                     </div>
                 </div>
             </div>
-            <div class="parent__task container mt-3 p-3 shadow-incomplete">
+            <div class="parent__task container shadow-incomplete static mt-3 p-3">
                 <div class="parent__row row d-flex justify-content-around">
                     <div class="task__header w-75 d-flex justify-content-between">
                         <p class="task__paragraph task__title">Acheter du pain</p>
@@ -97,10 +98,11 @@
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
                         <div class="progress-bar" name="progress bar" value="" role="progressbar" style="width: 0%;background-color: rgba(218, 218, 218, 0.966); color:black" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                        <input type="number" class ="task__input--progress form-control m-auto w-25 d-none">
                     </div>
                 </div>
             </div>
-            <div class="parent__task container mt-3 p-3 shadow-complete">
+            <div class="parent__task container shadow-complete static mt-3 p-3">
                 <div class="parent__row row d-flex justify-content-around">
                     <div class="task__header w-75 d-flex justify-content-between">
                         <p class="task__paragraph task__title">Acheter du pain</p>
@@ -115,10 +117,11 @@
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
                         <div class="progress-bar" name="progress bar" value="" role="progressbar" style="width: 100%;background-color: rgba(218, 218, 218, 0.966); color:black" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                        <input type="number" class ="task__input--progress form-control m-auto w-25 d-none">
                     </div>
                 </div>
             </div>
-            <div class="parent__task container mt-3 p-3 shadow-started">
+            <div class="parent__task container shadow-started static mt-3 p-3">
                 <div class="parent__row row d-flex justify-content-around">
                     <div class="task__header w-75 d-flex justify-content-between">
                         <p class="task__paragraph task__title">Acheter du pain</p>
@@ -133,10 +136,11 @@
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
                         <div class="progress-bar" name="progress bar" value="" role="progressbar" style="width: 55%;background-color: rgba(218, 218, 218, 0.966); color:black" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">55%</div>
+                        <input type="number" class ="task__input--progress form-control m-auto w-25 d-none">
                     </div>
                 </div>
             </div>
-            <div class="parent__task container mt-3 p-3 shadow-incomplete">
+            <div class="parent__task container shadow-incomplete static mt-3 p-3">
                 <div class="parent__row row d-flex justify-content-around">
                     <div class="task__header w-75 d-flex justify-content-between">
                         <p class="task__paragraph task__title">Acheter du pain</p>
@@ -151,6 +155,7 @@
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
                         <div class="progress-bar" name="progress bar" value="" role="progressbar" style="width: 0%;background-color: rgba(218, 218, 218, 0.966); color:black" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                        <input type="number" class ="task__input--progress form-control m-auto w-25 d-none">
                     </div>
                 </div>
             </div>
@@ -197,7 +202,8 @@
                         <button><span class="delete fas fa-trash" style="color: red"></span></button>
                     </div>
                     <div class="parent__progress mb-n2 mt-2 p-0 container">
-                        <div class="progress-bar templateProgress_task" name="progress bar" value="" role="progressbar" style="    background-color: rgba(218, 218, 218, 0.966)(218, 218, 218, 0.966); color:black" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar templateProgress_task" name="progress bar" value="" role="progressbar" style="    background-color: rgba(218, 218, 218, 0.966); color:black" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                        <input type="number" class ="task__input--progress form-control m-auto w-25 d-none">
                     </div>
                 </div>
             </div>

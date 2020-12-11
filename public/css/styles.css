@@ -15,9 +15,14 @@ header div>div img {
     width: 50px;
 }
 
-body {
+.light__Theme {
     height: 100vh;
-    background-image: linear-gradient(#FCFCFC, white, whitesmoke, antiquewhite);
+    background-image: linear-gradient(#FCFCFC, whitesmoke, antiquewhite, whitesmoke, antiquewhite);
+    background-repeat: space;
+}
+.dark__Theme {
+    height: 100vh;
+    background-image: linear-gradient(#FCFCFC, whitesmoke, antiquewhite, whitesmoke, antiquewhite);
     background-repeat: space;
 }
 
@@ -44,9 +49,47 @@ body {
     font-weight: bold;
     border-radius: 14px;
 }
-.shadow-test {
-    box-shadow: 0px 11px 10px#1ce5ff;
-    background-color:#00cfb3b2;
+.shadow-form_incomplete {
+    /* box-shadow: 0px 11px 10px rgb(177, 207, 236); */
+    box-shadow: 0px 11px 10px #fC666E;
+    background-color:lightslategray;
+    color: #FCFCFC;
+    font-weight: bold;
+    border-radius: 14px;
+}
+.shadow-form_started {
+    /* box-shadow: 0px 11px 10px rgb(177, 207, 236); */
+    box-shadow: 0px 11px 10px #0049CFB2;
+    background-color:lightslategray;
+    color: #FCFCFC;
+    font-weight: bold;
+    border-radius: 14px;
+}
+.shadow-form_complete {
+    /* box-shadow: 0px 11px 10px rgb(177, 207, 236); */
+    box-shadow: 0px 11px 10px #88C100 ;
+    background-color:lightslategray;
+    color: #FCFCFC;
+    font-weight: bold;
+    border-radius: 14px;
+}
+.shadow-api_started {
+    box-shadow: 0px 11px 10px #1c6bff;
+    background-color:#010008c5;
+    color: #FCFCFC;
+    font-weight: bold;
+    border-radius: 14px;
+}
+.shadow-api_incomplete {
+    box-shadow: 11px 5px 10px #fc666e;
+    background-color:#010008c5;
+    color: #FCFCFC;
+    font-weight: bold;
+    border-radius: 14px;
+}
+.shadow-api_complete {
+    box-shadow: -11px 5px 10px #88c100;
+    background-color:#010008c5;
     color: #FCFCFC;
     font-weight: bold;
     border-radius: 14px;
@@ -73,7 +116,7 @@ nav img {
     /* box-shadow: 0px -4px 11px 2px #8d8d8d; */
     background-color: lightslategray;
     /* background-color: #FCFCFC; */
-    background-color: rgba(218, 218, 218, 0.966);
+    /* background-color: rgba(218, 218, 218, 0.966); */
     font-weight: bold;
 }
 
