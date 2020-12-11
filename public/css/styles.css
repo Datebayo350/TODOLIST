@@ -15,9 +15,14 @@ header div>div img {
     width: 50px;
 }
 
-body {
+.light__Theme {
     height: 100vh;
-    background-image: linear-gradient(#FCFCFC, white, whitesmoke, antiquewhite);
+    background-image: linear-gradient(#FCFCFC, whitesmoke, antiquewhite, whitesmoke, antiquewhite);
+    background-repeat: space;
+}
+.dark__Theme {
+    height: 100vh;
+    background-image: linear-gradient(#FCFCFC, whitesmoke, antiquewhite, whitesmoke, antiquewhite);
     background-repeat: space;
 }
 
@@ -44,8 +49,25 @@ body {
     font-weight: bold;
     border-radius: 14px;
 }
-.shadow-form {
-    box-shadow: 0px 11px 10px rgb(177, 207, 236);
+.shadow-form_incomplete {
+    /* box-shadow: 0px 11px 10px rgb(177, 207, 236); */
+    box-shadow: 0px 11px 10px #fC666E;
+    background-color:lightslategray;
+    color: #FCFCFC;
+    font-weight: bold;
+    border-radius: 14px;
+}
+.shadow-form_started {
+    /* box-shadow: 0px 11px 10px rgb(177, 207, 236); */
+    box-shadow: 0px 11px 10px #0049CFB2;
+    background-color:lightslategray;
+    color: #FCFCFC;
+    font-weight: bold;
+    border-radius: 14px;
+}
+.shadow-form_complete {
+    /* box-shadow: 0px 11px 10px rgb(177, 207, 236); */
+    box-shadow: 0px 11px 10px #88C100 ;
     background-color:lightslategray;
     color: #FCFCFC;
     font-weight: bold;
